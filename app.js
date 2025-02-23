@@ -65,9 +65,26 @@ function emptyString(string) {
 const checkString = emptyString('   ');
 console.log(checkString);
 
-// Exercise 3-1 & 3-2
-
+// Exercise 3-1
 function halfNumber(number) {
-   return (halvedNumber = number / 2);
-   console.log(`Half of ${number} is ${halvedNumber}`);
+   return number / 2; //halved number scoped inside function
+   // console.log(`Half of ${number} is ${halvedNumber}`); //once function returns, it exits
+}
+const OgNumber = 234;
+
+const halvedNumber = halfNumber(OgNumber);
+console.log(`Half of ${OgNumber} is ${halvedNumber}`);
+
+// Exercise 3-2
+function timeInSeconds(minutes) {
+   return minutes * 60;
+}
+
+const minutes = parseInt(prompt('Enter the number of minutes'));
+if (!isNaN(minutes)) {
+   const totalSeconds = timeInSeconds(minutes);
+   alert(`${minutes} is ${totalSeconds} in seconds`);
+   console.log(`${minutes} minutes is ${totalSeconds} in seconds`);
+} else {
+   console.log('Please enter a valid number');
 }
