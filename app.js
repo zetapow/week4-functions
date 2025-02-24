@@ -127,7 +127,7 @@ console.log(`Half of ${OgNumber} is ${halvedNumber}`);
 function timeInSeconds(minutes) {
    return minutes * 60;
 }
-
+/*
 const minutes = parseInt(prompt('Enter the number of minutes'));
 
 if (!isNaN(minutes)) {
@@ -137,6 +137,7 @@ if (!isNaN(minutes)) {
 } else {
    console.log('Please enter a valid number');
 }
+*/
 
 /* Function inside object = method 
 
@@ -148,3 +149,62 @@ const person = {
 
 console.log(person.greet('Jimbo'));
 */
+
+function mysteryFunc() {
+   const rand = Math.random();
+   if (rand > 0.5) {
+      return function () {
+         console.log('congratulations');
+         console.log('you win');
+      };
+   } else {
+      return function () {
+         console.log('sorry, you lost');
+      };
+   }
+}
+
+console.log(mysteryFunc());
+
+function makeBetween(min, max) {
+   return function (num) {
+      return num >= min && num <= max;
+   };
+}
+
+const testRange = makeBetween(100, 200);
+console.log(testRange(120));
+
+function isBetween(num) {
+   return num >= 50 && num <= 100;
+}
+console.log(isBetween(70));
+
+// Methods
+
+const myCalc = {
+   add(x, y) {
+      return x + y;
+   },
+   divide(x, y) {
+      return x / y;
+   },
+   square(x) {
+      return x * x;
+   },
+   pi: 3.145,
+};
+
+// This
+
+const cat = {
+   name: 'Max Power',
+   color: 'Grey',
+   breed: 'Maine Coon',
+   meow() {
+      console.log(`${this.name} says mewoeoeowoeeoweo`);
+   },
+};
+
+// Depends on invocation context of the function its used in
+const meow2 = cat.meow;
